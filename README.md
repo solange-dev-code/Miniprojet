@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Schoolprepar
 
 Schoolprepar est une application web développée avec le framework Symfony.
