@@ -1,8 +1,9 @@
 
 Schoolprepar
 
-Schoolprepar est une application web développée avec le framework Symfony.
-Ce projet a été réalisé dans le cadre d’un apprentissage sur l’architecture MVC (Modèle – Vue – Contrôleur) et la structuration d’un projet professionnel.
+SchoolPrepar est une plateforme web développée avec Symfony permettant
+aux étudiants de découvrir les filières et établissements disponibles.
+
 
 Les technologies utilisées    
     PHP
@@ -26,60 +27,98 @@ Les étapes de mise en place du projet
 Le projet a été créé avec la commande suivante :
     symfony new Schoolprepar --webapp
 
+Prérequis
+    PHP 8.1+
+    Composer
+    Symfony CLI
 
-3-Architecture du projet
-Le projet respecte l’architecture MVC :
-    Model : Gestion des données
-    View : Fichiers Twig pour l’affichage
-    Controller : Gestion des routes et logique
+Étapes de clonage
 
+1. git clone <url-du-repo>
+cd schoolprepar
 
-4-Contrôleurs créés
+2. Installer les dépendances
+composer install
 
-    Les contrôleurs ont été générés via le terminal :
+3. Lancer le serveur
+symfony serve
 
-        php bin/console make:controller HomeController
-        php bin/console make:controller StudentController
-        php bin/console make:controller NanaController
-        php bin/console make:controller DedeController
-
-
-5-Gestion des routes
-
-Les routes ont été définies dans les contrôleurs à l’aide des annotations #[Route].
-Exemple 
-      #[Route('/student', name: 'app_student')]
-    public function index(): Response
-    {
-        return $this->render('student/index.html.twig', [
-            'controller_name' => 'StudentController',
-        ]);
-    }
+4. Ouvrir dans le navigateur
+http://127.0.0.1:8000
 
 
-6-navigation entre les pages 
+src/
+└── Controller/
+    ├── Front/
+    │   ├── HomeController.php
+    │   ├── FiliereController.php
+    │   └── EtablissementController.php
+    └── Admin/
+        ├── AdminDashboardController.php
+        ├── AdminFiliereController.php
+        └── AdminEtablissementController.php
 
-Dans le HomeController, des liens ont été ajoutés pour accéder aux pages :
-    Student
-    Nana
-    Dede
-Exemple dans base.html.twig :
-    <nav>
-            <p>
-                <a href="dede/index.html.twig">Dede's</a>
-            </p>
-            <p>
-                <a href="nana/index.html.twig">Nana's</a>
-            </p>
-            <p>
-                <a href="student/index.html.twig">student's</a>
-            </p>
+templates/
+├── front/
+│   ├── base.html.twig
+│   ├── home.html.twig
+│   ├── partials/
+│   │   ├── nav.html.twig
+│   │   └── footer.html.twig
+│   ├── filiere/
+│   │   ├── index.html.twig
+│   └── etablissement/
+│       └── index.html.twig
+└── admin/
+    ├── base.html.twig
+    ├── dashboard.html.twig
+    ├── partials/
+    │   ├── nav.html.twig
+    │   ├── aside.html.twig
+    │   └── footer.html.twig
+    ├── filiere/
+    │   └── index.html.twig
+    └── etablissement/
+        └── index.html.twig
 
-        </nav>
+public/
+├── Charitize/   ← Template front-office
+└── Mentor/      ← Template back-office
+
+Front-office
+ Route  URL  Description 
+
+| home | / | Page d'accueil |
+| filieres_list | /filieres | Liste des filières |
+| filiere_show | /filieres/{id} | Détail d'une filière |
+| etablissements_list | /etablissements | Liste des établissements |
+
+ Back-office
+| Route  URL  Description |
+
+| admin_dashboard | /admin | Dashboard admin |
+| admin_filieres_list | /admin/filieres | Gestion des filières |
+| admin_etablissements_list | /admin/etablissements | Gestion des établissements 
+
+Templates utilisés
+
+Front-office: Charitize (ThemeWagon) – template orienté présentation
+Back-office : Mentor (BootstrapMade/ThemeWagon) – template éducatif
+
+
+Fonctionnalités implémentées
+
+- Routing Symfony avec attributs PHP 8
+- Contrôleurs organisés par espace (Front / Admin)
+- Vues Twig dynamiques avec héritage (extends/block)
+- Navigation dynamique avec détection de la route active
+- Deux interfaces distinctes (front-office et back-office)
+- Intégration de deux templates HTML existants
+- Données fictives en attendant la base de données (TP3)
 
 
 7-Lancement du projet 
-    php -S localhost:8000 -t public puis http://localhost:8000
+    http://127.0.0.1:8000
 
 
 Auteur

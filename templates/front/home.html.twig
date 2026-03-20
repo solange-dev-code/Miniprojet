@@ -1,0 +1,168 @@
+{# templates/front/home.html.twig #}
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Accueil – SchoolPrepar{% endblock %}
+
+{% block body %}
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="owl-carousel header-carousel py-5">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="carousel-text">
+                            <h1 class="display-1 text-uppercase mb-3">Trouvez la Filière de vos Rêves</h1>
+                            <p class="fs-5 mb-5">SchoolPrepar vous aide à découvrir les meilleures filières et établissements pour construire votre avenir.</p>
+                            <div class="d-flex">
+                                <a class="btn btn-primary py-3 px-4 me-3" href="{{ path('filieres_list') }}">Voir les Filières</a>
+                                <a class="btn btn-secondary py-3 px-4" href="{{ path('etablissements_list') }}">Nos Établissements</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="carousel-img">
+                            <img class="w-100" src="{{ asset('Charitize/img/carousel-1.jpg') }}" alt="SchoolPrepar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="carousel-text">
+                            <h1 class="display-1 text-uppercase mb-3">Préparez votre Avenir Académique</h1>
+                            <p class="fs-5 mb-5">Explorez nos filières, comparez les établissements et faites le meilleur choix pour votre carrière.</p>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-primary py-3 px-4 me-3" href="{{ path('filieres_list') }}">Voir les Filières</a>
+                                <a class="btn btn-secondary py-3 px-4" href="{{ path('etablissements_list') }}">Nos Établissements</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="carousel-img">
+                            <img class="w-100" src="{{ asset('Charitize/img/carousel-2.jpg') }}" alt="SchoolPrepar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- Stats Start -->
+    <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-11">
+                    <div class="h-100 py-5 d-flex align-items-center">
+                        <i class="fa fa-graduation-cap fa-3x text-secondary me-4"></i>
+                        <h3 class="ms-3 mb-0">Plus de 3500 étudiants ont trouvé leur filière grâce à SchoolPrepar !</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Stats End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.2s">
+                    <img class="img-fluid w-100" src="{{ asset('Charitize/img/about.jpg') }}" alt="À propos">
+                </div>
+                <div class="col-lg-6">
+                    <p class="section-title bg-white text-start text-primary pe-3">À propos</p>
+                    <h1 class="display-6 mb-4 wow fadeIn" data-wow-delay="0.2s">Votre Avenir Commence Ici</h1>
+                    <p class="mb-4 wow fadeIn" data-wow-delay="0.3s">SchoolPrepar est une plateforme conçue pour guider les étudiants dans le choix de leur filière et de leur établissement. Nous mettons à votre disposition toutes les informations nécessaires pour prendre la meilleure décision.</p>
+                    <div class="row g-4 pt-2">
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+                            <h3>Notre Mission</h3>
+                            <p class="text-dark"><i class="fa fa-check text-primary me-2"></i>Orienter les étudiants</p>
+                            <p class="text-dark"><i class="fa fa-check text-primary me-2"></i>Comparer les filières</p>
+                            <p class="text-dark"><i class="fa fa-check text-primary me-2"></i>Trouver le bon établissement</p>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="h-100 bg-primary p-4 text-center">
+                                <p class="fs-5 text-dark">Découvrez toutes nos filières et établissements partenaires.</p>
+                                <a class="btn btn-secondary py-2 px-4" href="{{ path('filieres_list') }}">Explorer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Filières Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+                <p class="section-title bg-white text-center text-primary px-3">Filières</p>
+                <h1 class="display-6 mb-4">Nos Filières Disponibles</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-sm-6 col-md-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-laptop-code fa-2x text-secondary"></i>
+                        </div>
+                        <h3>Génie Logiciel</h3>
+                        <p class="mb-2">Formation en développement logiciel, architecture et génie des systèmes.</p>
+                        <a href="{{ path('filieres_list') }}">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-paint-brush fa-2x text-secondary"></i>
+                        </div>
+                        <h3>Web & Infographie Mobile</h3>
+                        <p class="mb-2">Conception web, design numérique et développement mobile.</p>
+                        <a href="{{ path('filieres_list') }}">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-network-wired fa-2x text-secondary"></i>
+                        </div>
+                        <h3>Réseaux & Télécoms</h3>
+                        <p class="mb-2">Infrastructure réseau, sécurité et systèmes de communication.</p>
+                        <a href="{{ path('filieres_list') }}">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5 wow fadeIn" data-wow-delay="0.3s">
+                <a href="{{ path('filieres_list') }}" class="btn btn-primary py-3 px-5">Voir toutes les filières</a>
+            </div>
+        </div>
+    </div>
+    <!-- Filières End -->
+
+
+    <!-- Banner Start -->
+    <div class="container-fluid banner py-5">
+        <div class="container">
+            <div class="banner-inner bg-light p-5 wow fadeIn" data-wow-delay="0.1s">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 py-5 text-center">
+                        <h1 class="display-6 wow fadeIn" data-wow-delay="0.3s">Trouvez l'Établissement Idéal pour Votre Formation !</h1>
+                        <p class="fs-5 mb-4 wow fadeIn" data-wow-delay="0.5s">Consultez notre liste d'établissements partenaires et choisissez celui qui correspond à vos ambitions.</p>
+                        <div class="d-flex justify-content-center wow fadeIn" data-wow-delay="0.7s">
+                            <a class="btn btn-primary py-3 px-4 me-3" href="{{ path('etablissements_list') }}">Voir les Établissements</a>
+                            <a class="btn btn-secondary py-3 px-4" href="{{ path('filieres_list') }}">Voir les Filières</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+{% endblock %}

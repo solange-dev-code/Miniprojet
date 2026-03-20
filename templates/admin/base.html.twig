@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>{% block title %}Administration – SchoolPrepar{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link href="{{ asset('Mentor/assets/img/favicon.png') }}" rel="icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link href="{{ asset('Mentor/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('Mentor/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('Mentor/assets/vendor/aos/aos.css') }}" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link href="{{ asset('Mentor/assets/css/main.css') }}" rel="stylesheet">
+
+    <style>
+        body { background-color: #f8f9fa; }
+        .admin-sidebar {
+            min-height: 100vh;
+            background: #012970;
+            color: white;
+            width: 260px;
+            position: fixed;
+            top: 0; left: 0;
+            z-index: 999;
+            padding-top: 20px;
+        }
+        .admin-sidebar .sidebar-logo {
+            padding: 15px 20px 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .admin-sidebar .sidebar-logo h4 {
+            color: white;
+            font-weight: 700;
+            margin: 0;
+        }
+        .admin-sidebar .sidebar-logo span {
+            color: #4154f1;
+            font-size: 12px;
+        }
+        .admin-sidebar .nav-link {
+            color: rgba(255,255,255,0.7);
+            padding: 10px 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .admin-sidebar .nav-link:hover,
+        .admin-sidebar .nav-link.active {
+            color: white;
+            background: rgba(255,255,255,0.1);
+        }
+        .admin-sidebar .nav-link i { font-size: 16px; }
+        .admin-main {
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+        .admin-topbar {
+            background: white;
+            padding: 12px 25px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .admin-topbar h5 { margin: 0; color: #012970; font-weight: 600; }
+        .admin-content { padding: 25px; }
+    </style>
+
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+
+    <!-- Sidebar -->
+    {% include 'admin/partials/aside.html.twig' %}
+
+    <div class="admin-main">
+
+        <!-- Topbar -->
+        {% include 'admin/partials/nav.html.twig' %}
+
+        <!-- Contenu -->
+        <div class="admin-content">
+            {% block body %}{% endblock %}
+        </div>
+
+        <!-- Footer -->
+        {% include 'admin/partials/footer.html.twig' %}
+
+    </div>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS -->
+    <script src="{{ asset('Mentor/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('Mentor/assets/vendor/aos/aos.js') }}"></script>
+
+    <!-- Main JS -->
+    <script src="{{ asset('Mentor/assets/js/main.js') }}"></script>
+
+    {% block javascripts %}{% endblock %}
+</body>
+</html>

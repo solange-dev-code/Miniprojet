@@ -1,0 +1,41 @@
+{# templates/admin/partials/aside.html.twig #}
+
+<div class="admin-sidebar">
+
+    <!-- Logo -->
+    <div class="sidebar-logo">
+        <h4><i class="bi bi-mortarboard-fill me-2"></i>SchoolPrepar</h4>
+        <span>Espace Administration</span>
+    </div>
+
+    <!-- Menu -->
+    <nav class="mt-3">
+        <a href="{{ path('admin_dashboard') }}"
+           class="nav-link {{ app.request.attributes.get('_route') == 'admin_dashboard' ? 'active' : '' }}">
+            <i class="bi bi-speedometer2"></i> Dashboard
+        </a>
+
+        <div class="px-3 py-2 mt-2">
+            <small class="text-white-50 text-uppercase" style="font-size: 11px;">Gestion</small>
+        </div>
+
+        <a href="{{ path('admin_filieres_list') }}"
+           class="nav-link {{ app.request.attributes.get('_route') starts with 'admin_filiere' ? 'active' : '' }}">
+            <i class="bi bi-journal-bookmark-fill"></i> Gestion des filières
+        </a>
+
+        <a href="{{ path('admin_etablissements_list') }}"
+           class="nav-link {{ app.request.attributes.get('_route') starts with 'admin_etablissement' ? 'active' : '' }}">
+            <i class="bi bi-building"></i> Gestion des établissements
+        </a>
+
+        <div class="px-3 py-2 mt-2">
+            <small class="text-white-50 text-uppercase" style="font-size: 11px;">Accès rapide</small>
+        </div>
+
+        <a href="{{ path('home') }}" class="nav-link" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i> Voir le site
+        </a>
+    </nav>
+
+</div>

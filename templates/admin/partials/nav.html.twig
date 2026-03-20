@@ -1,0 +1,32 @@
+{# templates/admin/partials/nav.html.twig #}
+
+<div class="admin-topbar">
+    <h5>
+        <i class="bi bi-chevron-right me-2"></i>
+        {% block page_title %}
+            {% if app.request.attributes.get('_route') == 'admin_dashboard' %}
+                Dashboard
+            {% elseif app.request.attributes.get('_route') starts with 'admin_filiere' %}
+                Gestion des filières
+            {% elseif app.request.attributes.get('_route') starts with 'admin_etablissement' %}
+                Gestion des établissements
+            {% else %}
+                Administration
+            {% endif %}
+        {% endblock %}
+    </h5>
+
+    <div class="d-flex align-items-center gap-3">
+        <span class="text-muted" style="font-size: 13px;">
+            <i class="bi bi-calendar3 me-1"></i>
+            {{ "now"|date("d/m/Y") }}
+        </span>
+        <div class="d-flex align-items-center gap-2">
+            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                 style="width:32px; height:32px;">
+                <i class="bi bi-person-fill text-white" style="font-size:14px;"></i>
+            </div>
+            <span style="font-size: 13px; font-weight: 600; color: #012970;">Admin</span>
+        </div>
+    </div>
+</div>

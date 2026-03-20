@@ -1,0 +1,52 @@
+{# templates/front/partials/footer.html.twig #}
+
+<!-- Footer Start -->
+<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row g-5 py-5">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">SchoolPrepar</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Lomé, Togo</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+228 90 00 00 00</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>contact@schoolprepar.tg</p>
+                <div class="d-flex pt-3">
+                    <a class="btn btn-square btn-primary me-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-primary me-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-primary me-2" href="#!"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-square btn-primary me-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Liens rapides</h4>
+                <a class="btn btn-link" href="{{ path('home') }}">Accueil</a>
+                <a class="btn btn-link" href="{{ path('filieres_list') }}">Filières</a>
+                <a class="btn btn-link" href="{{ path('etablissements_list') }}">Établissements</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">Horaires</h4>
+                <p class="mb-1">Lundi - Vendredi</p>
+                <h6 class="text-light">08:00 - 17:00</h6>
+                <p class="mb-1">Samedi</p>
+                <h6 class="text-light">09:00 - 12:00</h6>
+                <p class="mb-1">Dimanche</p>
+                <h6 class="text-light">Fermé</h6>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-light mb-4">À propos</h4>
+                <p class="text-white">SchoolPrepar est une plateforme dédiée à aider les étudiants à trouver la filière et l'établissement idéal pour leur avenir.</p>
+            </div>
+        </div>
+        <div class="copyright pt-5">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; {{ "now"|date("Y") }} <strong>SchoolPrepar</strong>. Tous droits réservés.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By <a class="fw-semi-bold" href="https://htmlcodex.com">HTML Codex</a> /
+                    <a class="fw-semi-bold" href="https://themewagon.com">ThemeWagon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->

@@ -1,0 +1,60 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Nos Filières – SchoolPrepar{% endblock %}
+
+{% block body %}
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3">Nos Filières</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('home') }}" class="text-white">Accueil</a></li>
+                    <li class="breadcrumb-item text-white active">Filières</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Filières Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-laptop-code fa-2x text-secondary"></i>
+                        </div>
+                        <h3>Génie Logiciel</h3>
+                        <p>Formation en développement logiciel, architecture et génie des systèmes.</p>
+                        <a href="{{ path('filiere_show', {'id': 1}) }}">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-paint-brush fa-2x text-secondary"></i>
+                        </div>
+                        <h3>Web & Infographie Mobile</h3>
+                        <p>Conception web, design numérique et développement mobile.</p>
+                        <a href="{{ path('filiere_show', {'id': 2}) }}">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-network-wired fa-2x text-secondary"></i>
+                        </div>
+                        <h3>Réseaux & Télécoms</h3>
+                        <p>Infrastructure réseau, sécurité et systèmes de communication.</p>
+                        <a href="{{ path('filiere_show', {'id': 3}) }}">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Filières End -->
+
+{% endblock %}

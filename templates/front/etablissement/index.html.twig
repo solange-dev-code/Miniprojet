@@ -1,0 +1,60 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Établissements – SchoolPrepar{% endblock %}
+
+{% block body %}
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3">Nos Établissements</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('home') }}" class="text-white">Accueil</a></li>
+                    <li class="breadcrumb-item text-white active">Établissements</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Établissements Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-school fa-2x text-secondary"></i>
+                        </div>
+                        <h3>Institut Supérieur de Technologie</h3>
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Lomé, Togo</p>
+                        <p><i class="fa fa-tag text-primary me-2"></i>Public</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-school fa-2x text-secondary"></i>
+                        </div>
+                        <h3>École Supérieure de Génie Informatique</h3>
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Lomé, Togo</p>
+                        <p><i class="fa fa-tag text-primary me-2"></i>Privé</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="service-item h-100">
+                        <div class="btn-square bg-light mb-4">
+                            <i class="fa fa-school fa-2x text-secondary"></i>
+                        </div>
+                        <h3>Université de Lomé – FAST</h3>
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Lomé, Togo</p>
+                        <p><i class="fa fa-tag text-primary me-2"></i>Public</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Établissements End -->
+
+{% endblock %}
