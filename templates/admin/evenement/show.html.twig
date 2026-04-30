@@ -1,0 +1,100 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Détails de l'Événement - SchoolPrepar{% endblock %}
+
+{% block body %}
+<div class="container-fluid px-4">
+    {# En-tête avec boutons d'action #}
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <div>
+            <h1 class="h3 mb-0 text-gray-800">Gestion des Événements</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ path('app_evenement_index') }}">Événements</a></li>
+                    <li class="breadcrumb-item active">Détails</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{{ path('app_evenement_index') }}" class="btn btn-outline-secondary rounded-pill shadow-sm">
+                <i class="bi bi-arrow-left me-1"></i> Retour
+            </a>
+            <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}" class="btn btn-primary rounded-pill shadow-sm">
+                <i class="bi bi-pencil me-1"></i> Modifier
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            {# Carte principale des détails #}
+            <div class="card shadow border-0 mb-4">
+                <div class="card-header py-3 bg-white">
+                    <h5 class="m-0 fw-bold text-primary">
+                        <i class="bi bi-info-circle me-2"></i>Informations sur l'événement
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="mb-4">
+                        <label class="small fw-bold text-muted text-uppercase">Titre</label>
+                        <h3 class="text-dark">{{ evenement.titre }}</h3>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label class="small fw-bold text-muted text-uppercase">Date et Heure</label>
+                            <p class="fs-5"><i class="bi bi-calendar3 me-2 text-primary"></i>{{ evenement.date ? evenement.date|date('d/m/Y H:i') : 'Non définie' }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small fw-bold text-muted text-uppercase">Identifiant</label>
+                            <p class="fs-5 text-muted">#{{ evenement.id }}</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="small fw-bold text-muted text-uppercase">Description</label>
+                        <div class="p-3 bg-light rounded border">
+                            {{ evenement.description|default('Aucune description fournie.')|nl2br }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            {# Carte des participants #}
+            <div class="card shadow border-0 mb-4">
+                <div class="card-header py-3 bg-white">
+                    <h5 class="m-0 fw-bold text-primary">
+                        <i class="bi bi-people me-2"></i>Participants inscrits
+                    </h5>
+                </div>
+                <div class="card-body">
+                    {% if evenement.participants|length > 0 %}
+                        <ul class="list-group list-group-flush">
+                            {% for participant in evenement.participants %}
+                                <li class="list-group-item px-0 d-flex align-items-center">
+                                    <div class="rounded-circle bg-info-subtle text-info d-flex align-items-center justify-content-center me-3" style="width: 35px; height: 35px; font-size: 0.8rem;">
+                                        {{ participant.nom|first|upper }}
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold small">{{ participant.nom }}</div>
+                                        <div class="text-muted small">{{ participant.email }}</div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="text-muted text-center py-3 mb-0 italic">Aucun participant pour le moment.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                {# Assure-toi que _delete_form.html.twig existe aussi dans admin/evenement #}
+                {{ include('admin/evenement/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

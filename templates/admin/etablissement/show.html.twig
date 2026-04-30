@@ -1,0 +1,65 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Détails de l'Établissement - SchoolPrepar{% endblock %}
+
+{% block body %}
+<div class="container-fluid px-4">
+    {# En-tête de page #}
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <div>
+            <h1 class="h3 mb-0 text-gray-800">Gestion des Établissements</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="{{ path('app_etablissement_index') }}">Établissements</a></li>
+                    <li class="breadcrumb-item active">Détails</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{{ path('app_etablissement_index') }}" class="btn btn-outline-secondary rounded-pill shadow-sm">
+                <i class="bi bi-arrow-left me-1"></i> Retour
+            </a>
+            <a href="{{ path('app_etablissement_edit', {'id': etablissement.id}) }}" class="btn btn-primary rounded-pill shadow-sm">
+                <i class="bi bi-pencil me-1"></i> Modifier
+            </a>
+        </div>
+    </div>
+
+    {# Carte de détails #}
+    <div class="card shadow border-0 mb-4">
+        <div class="card-header py-3 bg-white">
+            <h5 class="m-0 fw-bold text-primary">
+                <i class="bi bi-info-circle me-2"></i>Informations sur l'établissement
+            </h5>
+        </div>
+        <div class="card-body p-4">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th style="width: 200px;" class="text-muted">ID</th>
+                        <td class="fw-bold">#{{ etablissement.id }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted">Nom de l'établissement</th>
+                        <td class="fs-5 text-dark fw-bold">{{ etablissement.nom }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted">Adresse</th>
+                        <td>
+                            <div class="p-3 bg-light rounded-3 border">
+                                <i class="bi bi-geo-alt-fill text-danger me-2"></i>
+                                {{ etablissement.adresse|default('Non renseignée') }}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-4 pt-3 border-top d-flex justify-content-end">
+                {# Intégration du formulaire de suppression stylisé #}
+                {{ include('admin/etablissement/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

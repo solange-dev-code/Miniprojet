@@ -1,0 +1,65 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Nouvel Événement - SchoolPrepar{% endblock %}
+
+{% block body %}
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Gestion des Événements</h1>
+    </div>
+
+    <div class="card shadow border-0 mb-4">
+        <div class="card-header py-3 bg-white">
+            <h5 class="m-0 fw-bold text-primary">
+                <i class="bi bi-calendar-plus me-2"></i>Créer un nouvel événement
+            </h5>
+        </div>
+        <div class="card-body p-4">
+            {# L'attribut novalidate empêche les bulles d'erreur HTML5 intempestives #}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+                {% if not form.vars.valid %}
+                    <div class="alert alert-danger rounded-pill px-4">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Veuillez vérifier les informations saisies.
+                    </div>
+                {% endif %}
+
+                <div class="row g-3">
+                    <div class="col-md-8">
+                        <label class="form-label fw-bold">Titre de l'événement</label>
+                        {{ form_widget(form.titre) }}
+                        {{ form_errors(form.titre) }}
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold">Date de l'événement</label>
+                        {{ form_widget(form.date) }}
+                        {{ form_errors(form.date) }}
+                    </div>
+
+                    <div class="col-md-12">
+                        <label class="form-label fw-bold">Description</label>
+                        {{ form_widget(form.description) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+
+                    {# form_rest inclut le champ participants et le jeton CSRF #}
+                    <div class="visually-hidden">
+                        {{ form_rest(form) }}
+                    </div>
+                </div>
+
+                <div class="mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary rounded-pill px-4">
+                        <i class="bi bi-check-circle me-1"></i> Enregistrer l'événement
+                    </button>
+                    <a href="{{ path('app_evenement_index') }}" class="btn btn-light rounded-pill px-4">
+                        Annuler
+                    </a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

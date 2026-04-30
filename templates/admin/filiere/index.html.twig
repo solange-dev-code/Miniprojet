@@ -1,129 +1,77 @@
-{# templates/admin/filiere/index.html.twig #}
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Gestion des filières - Admin{% endblock %}
+{% block title %}Gestion des filières - SchoolPrepar{% endblock %}
 
 {% block body %}
-
-    <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb" class="mb-4">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ path('admin_dashboard') }}">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item active">Filières</li>
-        </ol>
-    </nav>
-
-    <!-- Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="fw-bold mb-0" style="color:#012970;">
-            <i class="bi bi-journal-bookmark-fill me-2"></i>Gestion des filières
-        </h4>
-        <button class="btn btn-primary">
-            <i class="bi bi-plus-lg me-2"></i>Ajouter une filière
-        </button>
-    </div>
-
-    <!-- Tableau -->
-    <div class="card border-0 shadow-sm">
-        <div class="card-body p-0">
-            <table class="table table-hover align-middle mb-0">
-                <thead class="table-light">
-                    <tr>
-                        <th class="px-4 py-3">#</th>
-                        <th class="py-3">Nom</th>
-                        <th class="py-3">Code</th>
-                        <th class="py-3">Niveau</th>
-                        <th class="py-3">Établissements</th>
-                        <th class="py-3">Statut</th>
-                        <th class="py-3">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="px-4">1</td>
-                        <td class="fw-semibold">Génie Logiciel</td>
-                        <td><span class="badge bg-primary">GL</span></td>
-                        <td>Licence – Master</td>
-                        <td>12</td>
-                        <td><span class="badge bg-success">Actif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">2</td>
-                        <td class="fw-semibold">Web & Infographie Mobile</td>
-                        <td><span class="badge bg-info">WIM</span></td>
-                        <td>Licence</td>
-                        <td>8</td>
-                        <td><span class="badge bg-success">Actif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">3</td>
-                        <td class="fw-semibold">Réseaux & Télécommunications</td>
-                        <td><span class="badge bg-success">RT</span></td>
-                        <td>Licence – Master</td>
-                        <td>15</td>
-                        <td><span class="badge bg-success">Actif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">4</td>
-                        <td class="fw-semibold">Systèmes Embarqués & IoT</td>
-                        <td><span class="badge bg-warning text-dark">SEI</span></td>
-                        <td>Licence – Master</td>
-                        <td>4</td>
-                        <td><span class="badge bg-danger">Inactif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">5</td>
-                        <td class="fw-semibold">Intelligence Artificielle</td>
-                        <td><span class="badge bg-danger">IA</span></td>
-                        <td>Master</td>
-                        <td>6</td>
-                        <td><span class="badge bg-success">Actif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="container-fluid">
+    <div class="card shadow-sm border-0 mt-4">
+        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+            <h5 class="m-0 fw-bold text-primary">
+                <i class="bi bi-book me-2"></i>Gestion des filières
+            </h5>
+            <a href="{{ path('app_filiere_new') }}" class="btn btn-primary btn-sm rounded-pill px-3">
+                <i class="bi bi-plus-lg me-1"></i> Ajouter une filière
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="px-4">#</th>
+                            <th>Nom</th>
+                            <th>Code</th>
+                            <th>Niveau</th>
+                            <th>Établissement</th>
+                            <th>Statut</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for filiere in filieres %}
+                            <tr>
+                                <td class="px-4 text-muted">{{ loop.index }}</td>
+                                <td class="fw-bold" style="color: #4154f1;">
+                                    {{ filiere.nom|default(filiere.libelle) }}
+                                </td>
+                                <td>
+                                    {% set colors = ['bg-primary', 'bg-info text-dark', 'bg-success', 'bg-warning text-dark', 'bg-danger'] %}
+                                    <span class="badge rounded-pill {{ cycle(colors, loop.index0) }} px-3">
+                                        {{ filiere.code|default('N/A') }}
+                                    </span>
+                                </td>
+                                <td>{{ filiere.niveau|default('Licence - Master') }}</td>
+                                <td class="text-secondary">
+                                    {{ filiere.etablissement ? filiere.etablissement.nom : 'Non rattaché' }}
+                                </td>
+                                <td>
+                                    {% if filiere.statut|lower == 'actif' or filiere.statut is null %}
+                                        <span class="badge bg-success px-3">Actif</span>
+                                    {% else %}
+                                        <span class="badge bg-danger px-3">Inactif</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <a href="{{ path('app_filiere_edit', {'id': filiere.id}) }}" class="btn btn-sm btn-outline-warning">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        {{ include('admin/filiere/_delete_form.html.twig', {'filiere': filiere}) }}
+                                    </div>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7" class="text-center py-5 text-muted">
+                                    <i class="bi bi-folder-x display-4 d-block mb-2"></i>
+                                    Aucune filière trouvée dans la base de données.
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
+</div>
 {% endblock %}

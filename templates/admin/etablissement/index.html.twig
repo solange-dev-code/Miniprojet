@@ -20,9 +20,10 @@
         <h4 class="fw-bold mb-0" style="color:#012970;">
             <i class="bi bi-building me-2"></i>Gestion des établissements
         </h4>
-        <button class="btn btn-primary">
+        {# LIEN DYNAMIQUE VERS LA PAGE DE CRÉATION #}
+        <a href="{{ path('app_etablissement_new') }}" class="btn btn-primary">
             <i class="bi bi-plus-lg me-2"></i>Ajouter un établissement
-        </button>
+        </a>
     </div>
 
     <!-- Tableau -->
@@ -34,103 +35,35 @@
                         <th class="px-4 py-3">#</th>
                         <th class="py-3">Nom</th>
                         <th class="py-3">Ville</th>
-                        <th class="py-3">Pays</th>
-                        <th class="py-3">Type</th>
-                        <th class="py-3">Filières</th>
-                        <th class="py-3">Statut</th>
                         <th class="py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="px-4">1</td>
-                        <td class="fw-semibold">Institut Supérieur de Technologie</td>
-                        <td>Lomé</td>
-                        <td><span class="badge bg-secondary">Togo</span></td>
-                        <td><span class="badge bg-primary">Public</span></td>
-                        <td>3</td>
-                        <td><span class="badge bg-success">Actif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">2</td>
-                        <td class="fw-semibold">École Supérieure de Génie Informatique</td>
-                        <td>Lomé</td>
-                        <td><span class="badge bg-secondary">Togo</span></td>
-                        <td><span class="badge bg-warning text-dark">Privé</span></td>
-                        <td>2</td>
-                        <td><span class="badge bg-success">Actif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">3</td>
-                        <td class="fw-semibold">Université de Lomé – FAST</td>
-                        <td>Lomé</td>
-                        <td><span class="badge bg-secondary">Togo</span></td>
-                        <td><span class="badge bg-primary">Public</span></td>
-                        <td>3</td>
-                        <td><span class="badge bg-success">Actif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">4</td>
-                        <td class="fw-semibold">Institut Africain de Management</td>
-                        <td>Dakar</td>
-                        <td><span class="badge bg-secondary">Sénégal</span></td>
-                        <td><span class="badge bg-warning text-dark">Privé</span></td>
-                        <td>2</td>
-                        <td><span class="badge bg-success">Actif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">5</td>
-                        <td class="fw-semibold">École Polytechnique de Cotonou</td>
-                        <td>Cotonou</td>
-                        <td><span class="badge bg-secondary">Bénin</span></td>
-                        <td><span class="badge bg-warning text-dark">Privé</span></td>
-                        <td>3</td>
-                        <td><span class="badge bg-danger">Inactif</span></td>
-                        <td>
-                            <a href="#" class="btn btn-sm btn-outline-warning me-1">
-                                <i class="bi bi-pencil-fill"></i>
-                            </a>
-                            <a href="#" class="btn btn-sm btn-outline-danger">
-                                <i class="bi bi-trash-fill"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    {# BOUCLE SUR LES DONNÉES DE LA BASE #}
+                    {% for etablissement in etablissements %}
+                        <tr>
+                            <td class="px-4">{{ etablissement.id }}</td>
+                            <td class="fw-semibold">{{ etablissement.nom }}</td>
+                            <td>{{ etablissement.ville }}</td>
+                            <td>
+                                {# LIEN VOIR #}
+                                <a href="{{ path('app_etablissement_show', {'id': etablissement.id}) }}" class="btn btn-sm btn-outline-info me-1">
+                                    <i class="bi bi-eye-fill"></i>
+                                </a>
+                                {# LIEN MODIFIER #}
+                                <a href="{{ path('app_etablissement_edit', {'id': etablissement.id}) }}" class="btn btn-sm btn-outline-warning me-1">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="text-center py-4">Aucun établissement enregistré pour le moment.</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
 
 {% endblock %}
-

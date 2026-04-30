@@ -1,0 +1,59 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des Événements - SchoolPrepar{% endblock %}
+
+{% block body %}
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Gestion des Événements</h1>
+        <a href="{{ path('app_evenement_new') }}" class="btn btn-primary rounded-pill shadow-sm">
+            <i class="bi bi-plus-circle me-1"></i> Créer un événement
+        </a>
+    </div>
+
+    <div class="card shadow border-0 mb-4">
+        <div class="card-header py-3 bg-white">
+            <h5 class="m-0 fw-bold text-primary">Liste des événements enregistrés</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Titre</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for evenement in evenements %}
+                        <tr>
+                            <td>{{ evenement.id }}</td>
+                            <td class="fw-bold">{{ evenement.titre }}</td>
+                            <td>{{ evenement.date ? evenement.date|date('d/m/Y H:i') : '' }}</td>
+                            <td>{{ evenement.description|slice(0, 50) }}...</td>
+                            <td class="text-center">
+                                <div class="btn-group gap-2">
+                                    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}" class="btn btn-sm btn-outline-info rounded-pill">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}" class="btn btn-sm btn-outline-primary rounded-pill">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center py-4">Aucun événement trouvé</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

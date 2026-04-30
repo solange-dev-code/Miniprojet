@@ -29,6 +29,18 @@
             <i class="bi bi-building"></i> Gestion des établissements
         </a>
 
+        {# AJOUT : Gestion des Utilisateurs #}
+        <a href="{{ path('app_utilisateur_index') }}"
+           class="nav-link {{ app.request.attributes.get('_route') starts with 'app_utilisateur' ? 'active' : '' }}">
+            <i class="bi bi-people"></i> Gestion des utilisateurs
+        </a>
+
+        {# AJOUT : Gestion des Événements #}
+        <a href="{{ path('app_evenement_index') }}"
+           class="nav-link {{ app.request.attributes.get('_route') starts with 'app_evenement' ? 'active' : '' }}">
+            <i class="bi bi-calendar-event"></i> Gestion des événements
+        </a>
+
         <div class="px-3 py-2 mt-2">
             <small class="text-white-50 text-uppercase" style="font-size: 11px;">Accès rapide</small>
         </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller;
 
 use App\Repository\FiliereRepository;
 use App\Repository\EtablissementRepository;
@@ -17,12 +17,11 @@ class AdminDashboardController extends AbstractController
         EtablissementRepository $etablissementRepo,
         UtilisateurRepository $utilisateurRepo
     ): Response {
-        // Envoi des variables vers Twig
         return $this->render('admin/dashboard.html.twig', [
             'countFilieres' => $filiereRepo->count([]),
             'countEtablissements' => $etablissementRepo->count([]),
             'countUtilisateurs' => $utilisateurRepo->count([]),
-            'countVisites' => 1289, // Valeur statique
+            'countVisites' => 1289,
             'page_title' => 'Dashboard – Administration'
         ]);
     }

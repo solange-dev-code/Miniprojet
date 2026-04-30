@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier la Filière - SchoolPrepar{% endblock %}
+
+{% block body %}
+<div class="container-fluid px-4">
+    <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Gestion des Filières</h1>
+        <a href="{{ path('app_filiere_index') }}" class="btn btn-outline-secondary rounded-pill shadow-sm">
+            <i class="bi bi-arrow-left me-1"></i> Retour à la liste
+        </a>
+    </div>
+
+    <div class="card shadow border-0 mb-4">
+        <div class="card-header py-3 bg-white d-flex justify-content-between align-items-center">
+            <h5 class="m-0 fw-bold text-primary">
+                <i class="bi bi-pencil-square me-2"></i>Modifier la filière : {{ filiere.nom }}
+            </h5>
+            {# Assure-toi que ce fichier existe aussi dans admin/filiere/ #}
+            {{ include('admin/filiere/_delete_form.html.twig') }}
+        </div>
+        <div class="card-body p-4">
+            {# Le novalidate évite les blocages de bulles d'aide invisibles sur Windows #}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+                {% if not form.vars.valid %}
+                    <div class="alert alert-danger rounded-pill px-4">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Veuillez corriger les erreurs dans le formulaire.
+                    </div>
+                {% endif %}
+
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <label class="form-label fw-bold">Nom de la filière</label>
+                        {{ form_widget(form.nom, {'attr': {'class': 'form-control rounded-pill'}}) }}
+                        <div class="text-danger small">{{ form_errors(form.nom) }}</div>
+                    </div>
+
+                    {# Le champ description a été supprimé pour corriger la RuntimeError #}
+                </div>
+
+                <div class="mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary rounded-pill px-4">
+                        <i class="bi bi-save me-1"></i> Enregistrer les modifications
+                    </button>
+                    <a href="{{ path('app_filiere_index') }}" class="btn btn-light rounded-pill px-4">
+                        Annuler
+                    </a>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
